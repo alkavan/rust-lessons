@@ -1,7 +1,6 @@
 mod behavior;
 mod colors;
 
-use crate::colors::Color2;
 use behavior::pets;
 use colors::colors;
 use rand::Rng;
@@ -30,10 +29,9 @@ fn guess_a_number() {
     io::stdin()
         .read_line(&mut guess)
         .expect("Failed to read line");
-
-    let mut guess_int: u32 = guess.trim().parse().expect("Please type a number!");
     println!("You guessed: {}", guess);
 
+    let guess_int: u32 = guess.trim().parse().expect("Please type a number!");
     let secret_number = secret_number as u32;
 
     match guess_int.cmp(&secret_number) {

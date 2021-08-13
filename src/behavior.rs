@@ -91,4 +91,5 @@ pub fn pets() {
 
     println!("dogs: {:?}", pet_manager.dogs);
     println!("cats: {:?}", pet_manager.cats);
+    // println!("cat1: {:?}", cat1.unwrap()); // move error
 }
