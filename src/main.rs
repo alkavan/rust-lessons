@@ -1,6 +1,11 @@
+mod behavior;
+mod colors;
+
+use crate::colors::Color2;
+use behavior::pets;
+use colors::colors;
 use rand::Rng;
 use std::cmp::Ordering;
-use std::fmt;
 use std::io;
 
 fn main() {
@@ -9,6 +14,7 @@ fn main() {
     variables();
     constants();
     colors();
+    pets();
 }
 
 fn hello_world() {
@@ -49,52 +55,14 @@ fn variables() {
 const U8_MAX: u8 = 255;
 
 fn constants() {
-    let array = [U8_MAX; 5]; // constant is literally alias to another static value
-    println!("Array: {:?}", array);
-    let foo = max_u8();
-    println!("U8_MAX: {}", max_u8());
+    let max_u8 = max_u8();
+    println!("Array: {:?}", max_u8);
 }
 
-const fn max_u8() -> &'static u8 {
-    let number: u8 = 128;
+const fn max_u8() -> [u8; 3] {
+    let i8_max: i8 = i8::MAX;
     // return &number; // copy
-    return &U8_MAX;
-}
 
-type Color = (i32, i32, i32);
-
-#[derive(Debug)]
-struct KewlColor(Color);
-
-fn colors() {
-    const COLOR_BLUE: (i32, i32, i32) = (0, 0, 255); // rgb
-    println!("Blue (constant): {:?}", COLOR_BLUE);
-
-    let blue = KewlColor((0, 0, 255));
-    println!("Blue1: {}", blue);
-
-    let blue2 = Color2 { r: 0, g: 0, b: 255 };
-    println!("Blue2: {:?}", blue2);
-
-    let blue2 = Color2::new(0, 0, 255);
-    println!("Blue3: {:?}", blue2);
-}
-
-impl fmt::Display for KewlColor {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{:?}", self)
-    }
-}
-
-#[derive(Clone, Hash, Eq, PartialEq, Debug)]
-struct Color2 {
-    r: u8,
-    g: u8,
-    b: u8,
-}
-
-impl Color2 {
-    fn new(r: u8, g: u8, b: u8) -> Color2 {
-        return Color2 { r, g, b };
-    }
+    // return [U8_MAX, i8_max];
+    return [U8_MAX, i8_max as u8, U8_MAX];
 }
