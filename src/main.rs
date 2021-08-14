@@ -1,6 +1,8 @@
 mod behavior;
+mod collections;
 mod colors;
 
+use crate::collections::{hash_map, hash_set, queue, vector};
 use behavior::pets;
 use colors::colors;
 use rand::Rng;
@@ -12,8 +14,15 @@ fn main() {
     // guess_a_number();
     variables();
     constants();
+    tuple();
+
     colors();
     pets();
+
+    vector();
+    queue();
+    hash_set();
+    hash_map();
 }
 
 fn hello_world() {
@@ -63,4 +72,10 @@ const fn max_u8() -> [u8; 3] {
 
     // return [U8_MAX, i8_max];
     return [U8_MAX, i8_max as u8, U8_MAX];
+}
+
+pub fn tuple() {
+    let point = (34, 144, 233);
+    let (x, y, z) = point;
+    println!("({}, {}, {})", x, y, z);
 }
