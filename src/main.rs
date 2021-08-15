@@ -1,8 +1,10 @@
 mod behavior;
 mod collections;
 mod colors;
+mod composition;
 
 use crate::collections::{hash_map, hash_set, queue, vector};
+use crate::composition::rpg;
 use behavior::pets;
 use colors::colors;
 use rand::Rng;
@@ -12,17 +14,20 @@ use std::io;
 fn main() {
     hello_world();
     // guess_a_number();
-    variables();
-    constants();
-    tuple();
 
-    colors();
-    pets();
+    // variables();
+    // constants();
+    // tuple();
 
-    vector();
-    queue();
-    hash_set();
-    hash_map();
+    // colors();
+    // pets();
+
+    // vector();
+    // queue();
+    // hash_set();
+    // hash_map();
+
+    // rpg();
 }
 
 fn hello_world() {
