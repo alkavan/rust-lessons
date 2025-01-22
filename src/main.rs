@@ -36,9 +36,10 @@ fn hello_world() {
 
 fn guess_a_number() {
     println!("Welcome to my awesome Guess The Number game!");
-    let secret_number: i32 = rand::thread_rng().gen_range(1..101);
+    let secret_number = rand::thread_rng().gen_range(1..101);
 
     let mut guess = String::new();
+
     println!("Please input your guess.");
     io::stdin()
         .read_line(&mut guess)
@@ -58,9 +59,9 @@ fn guess_a_number() {
 }
 
 fn variables() {
-    let x = 5;
+    let mut x = 5;
     println!("The value of x is: {}", x);
-    // x = 6;
+    x = 6;
     println!("The value of x is: {}", x);
 }
 
@@ -83,4 +84,5 @@ pub fn tuple() {
     let point = (34, 144, 233);
     let (x, y, z) = point;
     println!("({}, {}, {})", x, y, z);
+    println!("({}, {}, {})", point.0, point.1, point.2 );
 }

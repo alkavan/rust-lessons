@@ -26,7 +26,7 @@ impl fmt::Display for KewlColor {
 }
 
 #[derive(Clone, Hash, Eq, PartialEq, Debug)]
-pub struct Color2 {
+struct Color2 {
     r: u8,
     g: u8,
     b: u8,
